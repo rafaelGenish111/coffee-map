@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --color-bg-primary: #0f0f23;
+  --color-bg-surface: #1a1a2e;
+  --color-bg-card: #16213e;
+  --color-bg-card-hover: #1c2a4a;
+  --color-accent: #c9a96e;
+  --color-accent-hover: #d4b87d;
+  --color-accent-dim: #8b7355;
+  --color-copper: #b8860b;
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #8892b0;
+  --color-text-muted: #5a6380;
+  --color-success: #64ffda;
+  --color-error: #ff6b6b;
+  --color-warning: #ffd93d;
+  --color-star: #d4a634;
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-bg: rgba(255, 255, 255, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes pulse-location {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(2.5); opacity: 0; }
+}
+
+.location-pulse {
+  animation: pulse-location 2s ease-out infinite;
+}
+
+.glass {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+}
+
+.leaflet-container {
+  background: var(--color-bg-primary) !important;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(0.85) contrast(1.1) saturate(0.8);
+}
+
+.leaflet-control-zoom a {
+  background: var(--color-bg-surface) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-glass-border) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-bg-card) !important;
+  color: var(--color-text-primary) !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--color-glass-border) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--color-bg-card) !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--color-text-secondary) !important;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: 2px;
+}
